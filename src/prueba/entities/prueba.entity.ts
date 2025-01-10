@@ -13,9 +13,9 @@ export class Prueba {
     @Column()
     Anio:Date;
 
-    @OneToMany(()=>Resultado,(resultado)=>resultado.IDPrueba)
-    resultados:Resultado[];
+    // @OneToMany(()=>Resultado,(resultado)=>resultado.IDPrueba)
+    // resultados:Resultado[];
 
-    @OneToMany(()=>Pregunta,(pregunta)=>pregunta.IDPrueba)
-    pregunta:Pregunta[];
+    // @OneToMany(()=>Pregunta,(pregunta)=>pregunta.IDPrueba)
+    // pregunta:Pregunta[];
 }

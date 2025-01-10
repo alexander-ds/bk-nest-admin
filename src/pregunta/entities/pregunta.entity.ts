@@ -13,10 +13,10 @@ export class Pregunta {
     @Column()
     Orden:string;
 
-    @OneToMany(()=>Resultado,(resultado)=>resultado.IDPregunta)
-    resultados:Resultado[];
+    // @OneToMany(()=>Resultado,(resultado)=>resultado.IDPregunta)
+    // resultados:Resultado[];
 
-    @ManyToOne(()=>Prueba,(prueba) => prueba.ID)
-    @JoinColumn({ name: "IDPrueba" })
-    IDPrueba:Prueba;
+    // @ManyToOne(()=>Prueba,(prueba) => prueba.ID)
+    // @JoinColumn({ name: "IDPrueba" })
+    // IDPrueba:Prueba;
 }

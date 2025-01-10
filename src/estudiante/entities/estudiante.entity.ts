@@ -15,7 +15,7 @@ export class Estudiante  {
     @Column()
     Salon:string;
 
-    @OneToMany(()=>Resultado,(resultado)=>resultado.IDEstudiante)
-    resultados:Resultado[];
+    // @OneToMany(()=>Resultado,(resultado)=>resultado.IDEstudiante)
+    // resultados:Resultado[];
 
 }
