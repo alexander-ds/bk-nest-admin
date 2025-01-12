@@ -17,11 +17,19 @@ export class ResultadoController {
     return this.resultadoService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.resultadoService.findOne(+id);
+  @Get('/pregunta/:id')
+  findOneQuestion(@Param('id') id: string) {
+    return this.resultadoService.findOneQuestion(+id);
   }
 
+  @Get('/prueba/:id')
+  findOneTest(@Param('id') id: string) {
+    return this.resultadoService.findOneTest(+id);
+  }
+  @Get('/estudiante/:id')
+  findOneStudent(@Param('id') id: string) {
+    return this.resultadoService.findOneStudent(+id);
+  }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateResultadoDto: UpdateResultadoDto) {
     return this.resultadoService.update(+id, updateResultadoDto);
