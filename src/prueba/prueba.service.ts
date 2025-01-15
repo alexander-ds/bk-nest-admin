@@ -40,7 +40,7 @@ export class PruebaService {
   update(id: number, updatePruebaDto: UpdatePruebaDto) {
     return `This action updates a #${id} prueba`;
   }
-
+  // TODO : 
   remove(id: number) {
     return `This action removes a #${id} prueba`;
   }
