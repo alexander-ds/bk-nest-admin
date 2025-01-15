@@ -13,8 +13,16 @@ export class PruebaService {
     private readonly pruebaRepository: Repository<Prueba>,
   ){}
 
-  create(createPruebaDto: CreatePruebaDto) {
-    return 'This action adds a new prueba';
+  async create(createPruebaDto: CreatePruebaDto) {
+    try {
+      await this.pruebaRepository.query(
+        `INSERT INTO prueba (ID, Nombre, Anio) values (${createPruebaDto.id},${createPruebaDto.nombre},${createPruebaDto.anio})`,
+      );
+    } catch (e) {
+      console.log(e.message);
+      return e.message;
+    }
+    return 'Registro creado con exito \n' + JSON.stringify(createPruebaDto);
   }
 
   async findAll() {
@@ -32,7 +40,7 @@ export class PruebaService {
   update(id: number, updatePruebaDto: UpdatePruebaDto) {
     return `This action updates a #${id} prueba`;
   }
-
+  // TODO : 
   remove(id: number) {
     return `This action removes a #${id} prueba`;
   }

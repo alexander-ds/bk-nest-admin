@@ -13,8 +13,16 @@ export class EstudianteService {
     private readonly estudianteRepository: Repository<Estudiante>,
   ){}
 
-  create(createEstudianteDto: CreateEstudianteDto) {
-    return 'This action adds a new estudiante';
+  async create(createEstudianteDto: CreateEstudianteDto) {
+    try {
+      await this.estudianteRepository.query(
+        `INSERT INTO Estudiante (ID, Nombres, Grado, Salon) values (${createEstudianteDto.id},${createEstudianteDto.nombre},${createEstudianteDto.grado},${createEstudianteDto.salon})`,
+      );
+    } catch (e) {
+      console.log(e.message);
+      return e.message;
+    }
+    return 'Registro creado con exito \n' + JSON.stringify(createEstudianteDto);
   }
 
   async findAll() {

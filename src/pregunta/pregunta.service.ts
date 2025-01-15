@@ -13,8 +13,16 @@ export class PreguntaService {
     private readonly preguntaRepository: Repository<Pregunta>,
   ) {}
 
-  create(createPreguntaDto: CreatePreguntaDto) {
-    return 'This action adds a new pregunta';
+  async create(createPreguntaDto: CreatePreguntaDto) {
+    try {
+      await this.preguntaRepository.query(
+        `INSERT INTO Pregunta (ID, Respuesta, Orden, IDPrueba)  values (${createPreguntaDto.id},${createPreguntaDto.respuesta},${createPreguntaDto.orden},${createPreguntaDto.idPrueba})`,
+      );
+    } catch (e) {
+      console.log(e.message);
+      return e.message;
+    }
+    return 'Registro creado con exito \n' + JSON.stringify(createPreguntaDto);
   }
 
   async findAll() {
